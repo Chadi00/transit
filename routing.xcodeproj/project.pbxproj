@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		69F42E782C717F1B007F219A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69F42E772C717F1B007F219A /* main.cpp */; };
+		69F42E852C717F55007F219A /* graph.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69F42E802C717F55007F219A /* graph.cpp */; };
+		69F42E862C717F55007F219A /* hidden_markov_model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69F42E812C717F55007F219A /* hidden_markov_model.cpp */; };
+		69F42E882C717F55007F219A /* astar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69F42E832C717F55007F219A /* astar.cpp */; };
+		69F42E892C717F55007F219A /* pathfinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69F42E842C717F55007F219A /* pathfinder.cpp */; };
+		69F42E902C71833C007F219A /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 69F42E8F2C71833C007F219A /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +28,16 @@
 
 /* Begin PBXFileReference section */
 		69F42E742C717F1B007F219A /* routing */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = routing; sourceTree = BUILT_PRODUCTS_DIR; };
-		69F42E772C717F1B007F219A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		69F42E802C717F55007F219A /* graph.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = graph.cpp; sourceTree = "<group>"; };
+		69F42E812C717F55007F219A /* hidden_markov_model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hidden_markov_model.cpp; sourceTree = "<group>"; };
+		69F42E832C717F55007F219A /* astar.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = astar.cpp; sourceTree = "<group>"; };
+		69F42E842C717F55007F219A /* pathfinder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pathfinder.cpp; sourceTree = "<group>"; };
+		69F42E8A2C717F6F007F219A /* graph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graph.h; sourceTree = "<group>"; };
+		69F42E8B2C717F6F007F219A /* astar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = astar.h; sourceTree = "<group>"; };
+		69F42E8C2C717F6F007F219A /* station_edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = station_edge.h; sourceTree = "<group>"; };
+		69F42E8D2C717F6F007F219A /* pathfinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pathfinder.h; sourceTree = "<group>"; };
+		69F42E8E2C717F6F007F219A /* hidden_markov_model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hidden_markov_model.h; sourceTree = "<group>"; };
+		69F42E8F2C71833C007F219A /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +70,34 @@
 		69F42E762C717F1B007F219A /* routing */ = {
 			isa = PBXGroup;
 			children = (
-				69F42E772C717F1B007F219A /* main.cpp */,
+				69F42E7F2C717F2F007F219A /* src */,
+				69F42E7E2C717F26007F219A /* include */,
 			);
 			path = routing;
+			sourceTree = "<group>";
+		};
+		69F42E7E2C717F26007F219A /* include */ = {
+			isa = PBXGroup;
+			children = (
+				69F42E8B2C717F6F007F219A /* astar.h */,
+				69F42E8A2C717F6F007F219A /* graph.h */,
+				69F42E8E2C717F6F007F219A /* hidden_markov_model.h */,
+				69F42E8D2C717F6F007F219A /* pathfinder.h */,
+				69F42E8C2C717F6F007F219A /* station_edge.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		69F42E7F2C717F2F007F219A /* src */ = {
+			isa = PBXGroup;
+			children = (
+				69F42E832C717F55007F219A /* astar.cpp */,
+				69F42E802C717F55007F219A /* graph.cpp */,
+				69F42E812C717F55007F219A /* hidden_markov_model.cpp */,
+				69F42E842C717F55007F219A /* pathfinder.cpp */,
+				69F42E8F2C71833C007F219A /* main.cpp */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +157,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69F42E782C717F1B007F219A /* main.cpp in Sources */,
+				69F42E862C717F55007F219A /* hidden_markov_model.cpp in Sources */,
+				69F42E882C717F55007F219A /* astar.cpp in Sources */,
+				69F42E892C717F55007F219A /* pathfinder.cpp in Sources */,
+				69F42E902C71833C007F219A /* main.cpp in Sources */,
+				69F42E852C717F55007F219A /* graph.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

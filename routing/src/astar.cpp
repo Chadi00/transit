@@ -17,10 +17,13 @@ std::vector<Station*> AStar::findPath(Station* start, Station* goal) {
         auto current = openSet.top();
         openSet.pop();
 
-        std::cout << "Exploring station: " << current->station->name << std::endl;
+        double f_score = current->g + current->h;
+        std::cout << "Exploring station: " << current->station->name
+                  << " (g=" << current->g << ", h=" << current->h
+                  << ", f=" << f_score << ")" << std::endl;
 
         if (current->station == goal) {
-            std::cout << "Goal station " << goal->name << " found.\n";
+            std::cout << "Goal station " << goal->name << " found." << std::endl;
             return reconstructPath(current);
         }
 
@@ -35,8 +38,8 @@ std::vector<Station*> AStar::findPath(Station* start, Station* goal) {
             std::shared_ptr<Node> neighbor;
 
             if (neighborIt == allNodes.end()) {
-                neighbor = std::make_shared<Node>(Node{edge.to, current, tentativeG,
-                                                       graph.getHeuristic(*edge.to, *goal)});
+                double h = graph.getHeuristic(*edge.to, *goal);
+                neighbor = std::make_shared<Node>(Node{edge.to, current, tentativeG, h});
                 allNodes[edge.to] = neighbor;
             } else {
                 neighbor = neighborIt->second;
@@ -46,15 +49,20 @@ std::vector<Station*> AStar::findPath(Station* start, Station* goal) {
                 neighbor->parent = current;
             }
 
-            std::cout << "Adding/Updating neighbor station: " << neighbor->station->name
-                      << " with tentative cost: " << tentativeG << "\n";
+            double new_f_score = neighbor->g + neighbor->h;
+            std::cout << "  Neighbor: " << neighbor->station->name
+                      << " via line " << edge.line
+                      << " (g=" << neighbor->g << ", h=" << neighbor->h
+                      << ", f=" << new_f_score << ")" << std::endl;
+
             openSet.push(neighbor);
         }
     }
 
-    std::cout << "No path found from " << start->name << " to " << goal->name << ".\n";
+    std::cout << "No path found from " << start->name << " to " << goal->name << "." << std::endl;
     return {};  // No path found
 }
+
 
 std::vector<Station*> AStar::reconstructPath(const std::shared_ptr<Node>& goal) {
     std::vector<Station*> path;

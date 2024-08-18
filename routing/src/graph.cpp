@@ -21,28 +21,34 @@ std::vector<Edge> Graph::getNeighbors(const Station& station) {
     for (const auto& edge : edges) {
         if (edge.from->name == station.name) {
             neighbors.push_back(edge);
-        } else if (edge.to->name == station.name) {
-            // Add reverse edge
-            neighbors.push_back({edge.to, edge.from, edge.distance, edge.averageTime, edge.line});
         }
     }
-
+    
     // Debug print
     std::cout << "Station: " << station.name << " has " << neighbors.size() << " neighbors.\n";
     for (const auto& neighbor : neighbors) {
         std::cout << "  Neighbor: " << neighbor.to->name << " via line " << neighbor.line
                   << " (distance: " << neighbor.distance << ", time: " << neighbor.averageTime << ")\n";
     }
-
+    
     return neighbors;
 }
 
 double Graph::getHeuristic(const Station& from, const Station& to) {
-    // Simple Euclidean distance heuristic
-    double dx = from.x - to.x;
-    double dy = from.y - to.y;
-    return std::sqrt(dx*dx + dy*dy);
+    // Check if stations are on the same line (same x coordinate)
+    if (from.x == to.x) {
+        // Use the difference in y (order in the line) as the heuristic
+        double dy = std::abs(from.y - to.y);
+        return dy;  // Assume 1 unit of distance takes 1 minute (adjust as needed)
+    } else {
+        // If stations are on different lines, estimate based on y difference
+        // plus an additional penalty for line transfer
+        double dy = std::abs(from.y - to.y);
+        double lineTransferPenalty = 5.0;  // Adjust this penalty as needed
+        return dy + lineTransferPenalty;
+    }
 }
+
 
 Station* Graph::getStation(const std::string& name) {
     auto it = std::find_if(stations.begin(), stations.end(),

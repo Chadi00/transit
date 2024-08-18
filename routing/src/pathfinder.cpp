@@ -68,94 +68,98 @@ std::string PathFinder::getStationName(const std::string& line, int index) {
 
 void PathFinder::initializeMetroGraph() {
     // Green Line (Line 1)
-    metroGraph.addStation("Angrignon", 1, 1);
-    metroGraph.addStation("Monk", 2, 1);
-    metroGraph.addStation("Jolicoeur", 3, 1);
-    metroGraph.addStation("Verdun", 4, 2);
-    metroGraph.addStation("De l'Église", 5, 2);
-    metroGraph.addStation("LaSalle", 6, 2);
-    metroGraph.addStation("Charlevoix", 7, 2);
-    metroGraph.addStation("Lionel-Groulx", 8, 3);
-    metroGraph.addStation("Atwater", 9, 3);
-    metroGraph.addStation("Guy-Concordia", 10, 4);
-    metroGraph.addStation("Peel", 11, 4);
-    metroGraph.addStation("McGill", 12, 4);
-    metroGraph.addStation("Place-des-Arts", 13, 4);
-    metroGraph.addStation("Saint-Laurent", 14, 4);
-    metroGraph.addStation("Berri-UQAM", 15, 4);
-    metroGraph.addStation("Beaudry", 16, 5);
-    metroGraph.addStation("Papineau", 17, 5);
-    metroGraph.addStation("Frontenac", 18, 5);
-    metroGraph.addStation("Préfontaine", 19, 5);
-    metroGraph.addStation("Joliette", 20, 5);
-    metroGraph.addStation("Pie-IX", 21, 5);
-    metroGraph.addStation("Viau", 22, 5);
-    metroGraph.addStation("Assomption", 23, 6);
-    metroGraph.addStation("Cadillac", 24, 6);
-    metroGraph.addStation("Langelier", 25, 6);
-    metroGraph.addStation("Radisson", 26, 6);
-    metroGraph.addStation("Honoré-Beaugrand", 27, 7);
+    int line1 = 1;
+    metroGraph.addStation("Angrignon", line1, 1);
+    metroGraph.addStation("Monk", line1, 2);
+    metroGraph.addStation("Jolicoeur", line1, 3);
+    metroGraph.addStation("Verdun", line1, 4);
+    metroGraph.addStation("De l'Église", line1, 5);
+    metroGraph.addStation("LaSalle", line1, 6);
+    metroGraph.addStation("Charlevoix", line1, 7);
+    metroGraph.addStation("Lionel-Groulx", line1, 8); // Transfer station
+    metroGraph.addStation("Atwater", line1, 9);
+    metroGraph.addStation("Guy-Concordia", line1, 10);
+    metroGraph.addStation("Peel", line1, 11);
+    metroGraph.addStation("McGill", line1, 12);
+    metroGraph.addStation("Place-des-Arts", line1, 13);
+    metroGraph.addStation("Saint-Laurent", line1, 14);
+    metroGraph.addStation("Berri-UQAM", line1, 15); // Transfer station
+    metroGraph.addStation("Beaudry", line1, 16);
+    metroGraph.addStation("Papineau", line1, 17);
+    metroGraph.addStation("Frontenac", line1, 18);
+    metroGraph.addStation("Préfontaine", line1, 19);
+    metroGraph.addStation("Joliette", line1, 20);
+    metroGraph.addStation("Pie-IX", line1, 21);
+    metroGraph.addStation("Viau", line1, 22);
+    metroGraph.addStation("Assomption", line1, 23);
+    metroGraph.addStation("Cadillac", line1, 24);
+    metroGraph.addStation("Langelier", line1, 25);
+    metroGraph.addStation("Radisson", line1, 26);
+    metroGraph.addStation("Honoré-Beaugrand", line1, 27);
 
     // Orange Line (Line 2)
-    metroGraph.addStation("Montmorency", 1, 10);
-    metroGraph.addStation("De la Concorde", 2, 10);
-    metroGraph.addStation("Cartier", 3, 10);
-    metroGraph.addStation("Henri-Bourassa", 4, 9);
-    metroGraph.addStation("Sauvé", 5, 9);
-    metroGraph.addStation("Crémazie", 6, 8);
-    metroGraph.addStation("Jarry", 7, 8);
-    metroGraph.addStation("Jean-Talon", 8, 7);
-    metroGraph.addStation("Beaubien", 9, 7);
-    metroGraph.addStation("Rosemont", 10, 7);
-    metroGraph.addStation("Laurier", 11, 7);
-    metroGraph.addStation("Mont-Royal", 12, 7);
-    metroGraph.addStation("Sherbrooke", 13, 7);
-    // Berri-UQAM already added
-    metroGraph.addStation("Champ-de-Mars", 15, 6);
-    metroGraph.addStation("Place-d'Armes", 16, 6);
-    metroGraph.addStation("Square-Victoria–OACI", 17, 6);
-    metroGraph.addStation("Bonaventure", 18, 5);
-    metroGraph.addStation("Lucien-L'Allier", 19, 5);
-    metroGraph.addStation("Georges-Vanier", 20, 4);
-    // Lionel-Groulx already added
-    metroGraph.addStation("Place-Saint-Henri", 22, 4);
-    metroGraph.addStation("Vendôme", 23, 3);
-    metroGraph.addStation("Villa-Maria", 24, 3);
-    metroGraph.addStation("Snowdon", 25, 2);
-    metroGraph.addStation("Côte-Sainte-Catherine", 26, 2);
-    metroGraph.addStation("Plamondon", 27, 2);
-    metroGraph.addStation("Namur", 28, 1);
-    metroGraph.addStation("De la Savane", 29, 1);
-    metroGraph.addStation("Du Collège", 30, 1);
-    metroGraph.addStation("Côte-Vertu", 31, 1);
+    int line2 = 2;
+    metroGraph.addStation("Montmorency", line2, 1);
+    metroGraph.addStation("De la Concorde", line2, 2);
+    metroGraph.addStation("Cartier", line2, 3);
+    metroGraph.addStation("Henri-Bourassa", line2, 4);
+    metroGraph.addStation("Sauvé", line2, 5);
+    metroGraph.addStation("Crémazie", line2, 6);
+    metroGraph.addStation("Jarry", line2, 7);
+    metroGraph.addStation("Jean-Talon", line2, 8); // Transfer station
+    metroGraph.addStation("Beaubien", line2, 9);
+    metroGraph.addStation("Rosemont", line2, 10);
+    metroGraph.addStation("Laurier", line2, 11);
+    metroGraph.addStation("Mont-Royal", line2, 12);
+    metroGraph.addStation("Sherbrooke", line2, 13);
+    metroGraph.addStation("Berri-UQAM", line2, 14); // Transfer station
+    metroGraph.addStation("Champ-de-Mars", line2, 15);
+    metroGraph.addStation("Place-d'Armes", line2, 16);
+    metroGraph.addStation("Square-Victoria–OACI", line2, 17);
+    metroGraph.addStation("Bonaventure", line2, 18);
+    metroGraph.addStation("Lucien-L'Allier", line2, 19);
+    metroGraph.addStation("Georges-Vanier", line2, 20);
+    metroGraph.addStation("Lionel-Groulx", line2, 21); // Transfer station
+    metroGraph.addStation("Place-Saint-Henri", line2, 22);
+    metroGraph.addStation("Vendôme", line2, 23);
+    metroGraph.addStation("Villa-Maria", line2, 24);
+    metroGraph.addStation("Snowdon", line2, 25); // Transfer station
+    metroGraph.addStation("Côte-Sainte-Catherine", line2, 26);
+    metroGraph.addStation("Plamondon", line2, 27);
+    metroGraph.addStation("Namur", line2, 28);
+    metroGraph.addStation("De la Savane", line2, 29);
+    metroGraph.addStation("Du Collège", line2, 30);
+    metroGraph.addStation("Côte-Vertu", line2, 31);
 
     // Yellow Line (Line 4)
-    metroGraph.addStation("Longueuil–Université-de-Sherbrooke", 18, 6);
-    metroGraph.addStation("Jean-Drapeau", 19, 5);
-    // Berri-UQAM already added
+    int line4 = 4;
+    metroGraph.addStation("Longueuil–Université-de-Sherbrooke", line4, 1);
+    metroGraph.addStation("Jean-Drapeau", line4, 2);
+    metroGraph.addStation("Berri-UQAM", line4, 3); // Transfer station
 
     // Blue Line (Line 5)
-    // Snowdon already added
-    metroGraph.addStation("Côte-des-Neiges", 26, 4);
-    metroGraph.addStation("Université-de-Montréal", 27, 4);
-    metroGraph.addStation("Édouard-Montpetit", 28, 4);
-    metroGraph.addStation("Outremont", 29, 4);
-    metroGraph.addStation("Acadie", 30, 4);
-    metroGraph.addStation("Parc", 31, 5);
-    metroGraph.addStation("De Castelnau", 32, 5);
-    // Jean-Talon already added
-    metroGraph.addStation("Fabre", 34, 5);
-    metroGraph.addStation("D'Iberville", 35, 6);
-    metroGraph.addStation("Saint-Michel", 36, 6);
+    int line5 = 5;
+    metroGraph.addStation("Snowdon", line5, 1); // Transfer station
+    metroGraph.addStation("Côte-des-Neiges", line5, 2);
+    metroGraph.addStation("Université-de-Montréal", line5, 3);
+    metroGraph.addStation("Édouard-Montpetit", line5, 4);
+    metroGraph.addStation("Outremont", line5, 5);
+    metroGraph.addStation("Acadie", line5, 6);
+    metroGraph.addStation("Parc", line5, 7);
+    metroGraph.addStation("De Castelnau", line5, 8);
+    metroGraph.addStation("Jean-Talon", line5, 9); // Transfer station
+    metroGraph.addStation("Fabre", line5, 10);
+    metroGraph.addStation("D'Iberville", line5, 11);
+    metroGraph.addStation("Saint-Michel", line5, 12);
 
     // Add edges for Green Line (Line 1)
-    for (int i = 1; i <= 26; i++) {
-        metroGraph.addEdge(getStationName("Green", i), getStationName("Green", i+1), 1.0, 2.0, "Green");
+    for (int i = 1; i < 27; i++) {
+        metroGraph.addEdge(getStationName("Green", i), getStationName("Green", i + 1), 1.0, 2.0, "Green");
     }
 
     // Add edges for Orange Line (Line 2)
-    for (int i = 1; i <= 30; i++) {
-        metroGraph.addEdge(getStationName("Orange", i), getStationName("Orange", i+1), 1.0, 2.0, "Orange");
+    for (int i = 1; i < 31; i++) {
+        metroGraph.addEdge(getStationName("Orange", i), getStationName("Orange", i + 1), 1.0, 2.0, "Orange");
     }
 
     // Add edges for Yellow Line (Line 4)
@@ -163,14 +167,13 @@ void PathFinder::initializeMetroGraph() {
     metroGraph.addEdge("Jean-Drapeau", "Berri-UQAM", 1.0, 2.0, "Yellow");
 
     // Add edges for Blue Line (Line 5)
-    for (int i = 1; i <= 11; i++) {
-        metroGraph.addEdge(getStationName("Blue", i), getStationName("Blue", i+1), 1.0, 2.0, "Blue");
+    for (int i = 1; i < 12; i++) {
+        metroGraph.addEdge(getStationName("Blue", i), getStationName("Blue", i + 1), 1.0, 2.0, "Blue");
     }
 
-    // Add connection edges
+    // Add connection edges for transfer stations
     metroGraph.addEdge("Berri-UQAM", "Berri-UQAM", 0.0, 5.0, "Transfer");
     metroGraph.addEdge("Lionel-Groulx", "Lionel-Groulx", 0.0, 5.0, "Transfer");
     metroGraph.addEdge("Jean-Talon", "Jean-Talon", 0.0, 5.0, "Transfer");
     metroGraph.addEdge("Snowdon", "Snowdon", 0.0, 5.0, "Transfer");
 }
-
